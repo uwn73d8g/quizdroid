@@ -20,7 +20,8 @@
         <activity android:name=".SingleItem" />
         <activity android:name=".Math" />
         <activity android:name=".Marvel" />
-        <activity android:name=".PhysicsQuestion"></activity>
+        <activity android:name=".PhysicsQuestion" />
+        <activity android:name=".Answer"></activity>
     </application>
 
 </manifest>

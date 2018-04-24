@@ -7,59 +7,67 @@
     tools:context=".PhysicsQuestion">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/q"
         android:layout_width="368dp"
         android:layout_height="52dp"
-        android:text="1. Radiocarbon is produced in the atmosphere as a result of"
-        app:layout_constraintBottom_toTopOf="@+id/r1"
+        app:layout_constraintBottom_toTopOf="@+id/RGroup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <RadioButton
-        android:id="@+id/r1"
-        android:layout_width="368dp"
-        android:layout_height="66dp"
-        android:text="collision between fast neutrons and nitrogen nuclei present in the atmosphere"
-        app:layout_constraintBottom_toTopOf="@+id/r2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <RadioButton
-        android:id="@+id/r2"
-        android:layout_width="366dp"
-        android:layout_height="65dp"
-        android:text="action of ultraviolet light from the sun on atmospheric oxygen"
-        app:layout_constraintBottom_toTopOf="@+id/r3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/r1" />
-
-    <RadioButton
-        android:id="@+id/r3"
-        android:layout_width="368dp"
-        android:layout_height="70dp"
-        android:text="action of solar radiations particularly cosmic rays on carbon dioxide present in the atmosphere"
-        app:layout_constraintBottom_toTopOf="@+id/r4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/r2" />
-
-    <RadioButton
-        android:id="@+id/r4"
-        android:layout_width="368dp"
-        android:layout_height="30dp"
-        android:text="lightning discharge in atmosphere"
+    <RadioGroup
+        android:id="@+id/RGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         app:layout_constraintBottom_toTopOf="@+id/submit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/r3" />
+        app:layout_constraintTop_toBottomOf="@+id/q">
+
+        <RadioButton
+            android:id="@+id/r1"
+            android:layout_width="368dp"
+            android:layout_height="63dp"
+            app:layout_constraintBottom_toTopOf="@+id/r2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/q" />
+
+        <RadioButton
+            android:id="@+id/r2"
+            android:layout_width="366dp"
+            android:layout_height="65dp"
+            app:layout_constraintBottom_toTopOf="@+id/r3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/r1" />
+
+        <RadioButton
+            android:id="@+id/r3"
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            app:layout_constraintBottom_toTopOf="@+id/r4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/r2" />
+
+        <RadioButton
+            android:id="@+id/r4"
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            app:layout_constraintBottom_toTopOf="@+id/submit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/r3" />
+    </RadioGroup>
 
     <Button
         android:id="@+id/submit"
@@ -70,6 +78,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/r4" />
+        app:layout_constraintTop_toBottomOf="@+id/RGroup" />
 
 </android.support.constraint.ConstraintLayout>

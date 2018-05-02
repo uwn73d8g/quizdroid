@@ -16,12 +16,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SIngleItem" />
-        <activity android:name=".SingleItem" />
-        <activity android:name=".Math" />
-        <activity android:name=".Marvel" />
-        <activity android:name=".PhysicsQuestion" />
-        <activity android:name=".Answer"></activity>
+        <activity
+            android:name=".SecondActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".OverviewFragment1" />
+        <activity
+            android:name=".AnswerFragment1"
+            android:label="@string/title_activity_answer_fragment1"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".QuestionFragment1" />
+        <activity android:name=".AnswerFragment2" />
+        <activity android:name=".QuestionFragment2"></activity>
     </application>
 
 </manifest>

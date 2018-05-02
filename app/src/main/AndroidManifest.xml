@@ -15,22 +15,16 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity
-            android:name=".SecondActivity"
-            android:parentActivityName=".MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-        </activity>
-        <activity android:name=".OverviewFragment1" />
-        <activity
-            android:name=".AnswerFragment1"
-            android:label="@string/title_activity_answer_fragment1"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".QuestionFragment1" />
-        <activity android:name=".AnswerFragment2" />
-        <activity android:name=".QuestionFragment2"></activity>
+        <activity android:name=".TopicDescription" />
+        <activity android:name=".Quiz" />
+        <activity android:name=".Answer" />
+        <activity android:name=".QuizFragment"></activity>
     </application>
 
 </manifest>

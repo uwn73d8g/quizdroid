@@ -2,10 +2,7 @@ package edu.washington.uwn73d8g.quizdroid
 
 import android.app.Fragment
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Parcel
-import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +10,25 @@ import android.widget.Button
 import android.widget.TextView
 
 class AnswerFragment1 : Fragment() {
+    private lateinit var topic : Topic
+    var topicPos = 0
+    var numCorrect = 0
+    var currQuestion = 0
+    var selectedAns = ""
+    var correctAns = ""
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        if (arguments != null) {
+            topicPos = arguments.getInt("topicPos")
+            topic = QuizApp.instance.oneTopic(topicPos)
+            numCorrect = arguments.getInt("numCorrect")
+            currQuestion = arguments.getInt("currQuestion")
+            selectedAns = arguments.getString("selectedAns")
+            correctAns = arguments.getString("correctAns")
+        }
+    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -22,18 +37,12 @@ class AnswerFragment1 : Fragment() {
         var given: TextView = result.findViewById(R.id.given)
         var actual: TextView = result.findViewById(R.id.actual)
         var correct: TextView = result.findViewById(R.id.correct)
-        val questionNumber = arguments!!.getInt("questionNumber", 0)
-        val num = arguments!!.getInt("num", 0)
-        val begin = arguments!!.getInt("begin", 0)
-        val questions = arguments!!.getStringArray("questions")
-        val pick = arguments!!.getString("picked")
-        val cor = arguments!!.getString("right")
-        val totalQuestions = questions.size / 6
 
-        given.append(pick)
-        actual.append(cor)
-        correct.append("$num out of $totalQuestions right")
-        val last = questionNumber + 1 == totalQuestions
+
+        given.append(selectedAns)
+        actual.append(correctAns)
+        correct.append("$numCorrect out of $currQuestion right")
+        val last = currQuestion == topic.questions.size
 
         if (last) {
             next1.text = "Finish"
@@ -46,10 +55,9 @@ class AnswerFragment1 : Fragment() {
                 val fragment = QuestionFragment1()
                 val transaction = fragmentManager?.beginTransaction()
                 val bundle = Bundle()
-                bundle.putStringArray("questions", questions)
-                bundle.putInt("begin", begin)
-                bundle.putInt("questionNumber", questionNumber + 1)
-                bundle.putInt("num", num)
+                bundle.putInt("topicPos", topicPos)
+                bundle.putInt("numCorrect", numCorrect)
+                bundle.putInt("currQuestion", currQuestion)
                 fragment.arguments = bundle
                 transaction!!.replace(R.id.fragment, fragment)
                 transaction.commit()

@@ -18,7 +18,7 @@ class OverviewFragment1 : Fragment() {
 
         if (arguments != null) {
             topicPos = arguments.getInt("topicPos")
-            topic = QuizApp.instance.oneTopic(topicPos)
+            topic = QuizApp.instance.getTopic(topicPos)
         }
     }
 

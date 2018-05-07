@@ -22,7 +22,7 @@ class AnswerFragment1 : Fragment() {
 
         if (arguments != null) {
             topicPos = arguments.getInt("topicPos")
-            topic = QuizApp.instance.oneTopic(topicPos)
+            topic = QuizApp.instance.getTopic(topicPos)
             numCorrect = arguments.getInt("numCorrect")
             currQuestion = arguments.getInt("currQuestion")
             selectedAns = arguments.getString("selectedAns")

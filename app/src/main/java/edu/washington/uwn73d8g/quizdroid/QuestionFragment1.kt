@@ -21,7 +21,7 @@ class QuestionFragment1 : Fragment() {
 
         if (arguments != null) {
             topicPos = arguments.getInt("topicPos")
-            topic = QuizApp.instance.oneTopic(topicPos)
+            topic = QuizApp.instance.getTopic(topicPos)
             numCorrect = arguments.getInt("numCorrect")
             currQuestion = arguments.getInt("currQuestion")
         }
@@ -54,7 +54,7 @@ class QuestionFragment1 : Fragment() {
         submit?.setOnClickListener {
             val picked: Int? = radio?.checkedRadioButtonId
             var pickedText = result?.findViewById<TextView>(picked!!)?.text.toString()
-            val answer = quiz.answers[quiz.answerIndex -1 ]
+            val answer = quiz.answers[quiz.answerIndex]
             val newCorrect = if (pickedText  == answer) numCorrect + 1 else numCorrect
             val fragment = AnswerFragment1()
             val transaction = fragmentManager?.beginTransaction()

@@ -1,5 +1,8 @@
 package edu.washington.uwn73d8g.quizdroid
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
@@ -19,6 +22,7 @@ class SecondActivity : AppCompatActivity() {
         val transaction = fragmentManager.beginTransaction()
         val bundle = Bundle()
         bundle.putInt("topicPos", topicPos)
+
 
 
         val fragment = OverviewFragment1()

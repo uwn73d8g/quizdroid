@@ -1,5 +1,8 @@
 package edu.washington.uwn73d8g.quizdroid
 
+import android.app.PendingIntent.getActivity
+import android.widget.Toast
+
 interface TopicRepository {
     fun getTopics() : List<Topic>
     fun getTopic(num : Int) : Topic

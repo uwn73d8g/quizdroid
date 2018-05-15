@@ -1,6 +1,12 @@
 package edu.washington.uwn73d8g.quizdroid
 
+import android.app.Activity
+import android.app.PendingIntent.getActivity
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import android.os.AsyncTask
+import android.widget.Toast
 import org.json.JSONArray
 import java.io.BufferedInputStream
 import java.net.HttpURLConnection
@@ -10,6 +16,7 @@ import java.net.URL
 class Repository : TopicRepository, AsyncTask<String, String, String> {
         private val topics = ArrayList<Topic>()
         var url = ""
+
 
         constructor() {
             url = "http://tednewardsandbox.site44.com/questions.json"
@@ -24,9 +31,12 @@ class Repository : TopicRepository, AsyncTask<String, String, String> {
             return topics[num]
         }
 
-        override fun doInBackground(vararg p0: String?): String {
-            val connection = URL(url).openConnection() as HttpURLConnection
 
+        override fun doInBackground(vararg p0: String?): String {
+
+
+            val connection = URL(url).openConnection() as HttpURLConnection
+//            Toast.makeText(, "downloading $url", Toast.LENGTH_LONG).show()
             var input: String
 
             try {
